@@ -158,7 +158,11 @@
     if (G.canadaHelps) a.href = G.canadaHelps; else a.closest("[data-hide-empty]").remove();
   });
   document.querySelectorAll("[data-etransfer]").forEach(function (el) {
-    if (G.etransferEmail) el.innerHTML = '<a href="mailto:' + esc(G.etransferEmail) + '">' + esc(G.etransferEmail) + "</a>";
+    if (G.etransferEmail) el.textContent = G.etransferEmail;
+    else el.closest("[data-hide-empty]").remove();
+  });
+  document.querySelectorAll("[data-paypal]").forEach(function (el) {
+    if (G.paypalEmail) el.textContent = G.paypalEmail;
     else el.closest("[data-hide-empty]").remove();
   });
 })();

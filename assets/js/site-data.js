@@ -20,7 +20,7 @@ window.SITE = {
   },
   phone: "905-686-1757",                  // CONFIRM — taken from the 2012 website
   cell: "289-388-1705",                   // CONFIRM — taken from the 2012 website
-  email: "",                              // e.g. "info@citywidepraise.ca" (hidden while empty)
+  email: "citywidepraise7@gmail.com",     // shown on Plan a Visit + footer (hidden while empty)
 
   // Leave a link empty ("") and its icon is hidden automatically.
   social: {
@@ -79,7 +79,8 @@ window.SITE = {
   // ---- Giving --------------------------------------------------------------
   giving: {
     canadaHelps: "https://www.canadahelps.org/en/charities/citywide-praise-and-worship-baptist-church/",
-    etransferEmail: "",                     // e.g. "give@citywidepraise.ca" (hidden while empty)
+    etransferEmail: "citywidepraise7@gmail.com", // Interac e-Transfer, autodeposit on (hidden while empty)
+    paypalEmail: "citywidepraise7@gmail.com",    // PayPal "Send" (hidden while empty)
     charityNumber: "839404886RR0001",
   },
 };
