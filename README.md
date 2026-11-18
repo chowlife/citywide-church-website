@@ -95,11 +95,13 @@ by uploading this same folder.
 
 ## 7. Before launch checklist
 
-- [ ] Confirm phone numbers (copied from the 2012 site)
-- [ ] Confirm Tuesday/Thursday meeting times (copied from the 2012 site)
-- [ ] Confirm pastor's name/title, add photo and short bio
+- [x] Confirm phone numbers
+- [x] Confirm Tuesday/Thursday meeting times
+- [x] Confirm pastor's name/title
+- [ ] Add pastor photo and short bio
 - [ ] Add postal code
-- [ ] Add email address and e-Transfer email
+- [x] Add email address and e-Transfer email
+- [ ] Turn on auto-renew for citywidepraise.ca at Namecheap (registered until Nov 18, 2027)
 - [ ] Add Facebook / YouTube links if any
 - [ ] Add real photos (hero, congregation, worship)
 - [ ] Update the church's address on the CanadaHelps / CRA listing (it still shows 1593 Seguin Sq, Pickering)

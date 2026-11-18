@@ -18,8 +18,8 @@ window.SITE = {
     province: "ON",
     postalCode: "",                       // e.g. "L1S 0A0"
   },
-  phone: "905-686-1757",                  // CONFIRM — taken from the 2012 website
-  cell: "289-388-1705",                   // CONFIRM — taken from the 2012 website
+  phone: "905-686-1757",
+  cell: "289-388-1705",
   email: "citywidepraise7@gmail.com",     // shown on Plan a Visit + footer (hidden while empty)
 
   // Leave a link empty ("") and its icon is hidden automatically.
@@ -40,13 +40,13 @@ window.SITE = {
     },
     {
       day: "Tuesday",
-      time: "7:00 PM – 8:30 PM",            // CONFIRM — taken from the 2012 website
+      time: "7:00 PM – 8:30 PM",
       name: "Reach Out",
       description: "Caring for one another — visiting and praying with families in our community.",
     },
     {
       day: "Thursday",
-      time: "7:00 PM – 8:30 PM",            // CONFIRM — taken from the 2012 website
+      time: "7:00 PM – 8:30 PM",
       name: "Bible Study & Prayer",
       description: "Digging into Scripture together and getting the spiritual connection through prayer.",
     },
@@ -69,7 +69,7 @@ window.SITE = {
   // photo: put the picture in assets/images/ and write its file name here.
   leaders: [
     {
-      name: "Rev. George Lwamba",           // CONFIRM name and title
+      name: "Rev. George Lwamba",
       role: "Pastor",
       bio: "",
       photo: "",
