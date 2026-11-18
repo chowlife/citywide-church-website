@@ -96,7 +96,7 @@ by uploading this same folder.
 ## 7. Before launch checklist
 
 - [x] Confirm phone numbers
-- [x] Confirm Tuesday/Thursday meeting times
+- [x] Confirm weekday meeting times (Monday Morning Prayer, Thursday Bible Study)
 - [x] Confirm pastor's name/title
 - [ ] Add pastor photo and short bio
 - [ ] Add postal code

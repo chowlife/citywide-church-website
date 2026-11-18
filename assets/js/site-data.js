@@ -39,10 +39,10 @@ window.SITE = {
       featured: true,
     },
     {
-      day: "Tuesday",
-      time: "7:00 PM – 8:30 PM",
-      name: "Reach Out",
-      description: "Caring for one another — visiting and praying with families in our community.",
+      day: "Monday",
+      time: "5:00 AM – 5:30 AM",
+      name: "Morning Prayer",
+      description: "Starting the week together in prayer, seeking God before the day begins.",
     },
     {
       day: "Thursday",
