@@ -1,0 +1,736 @@
+<!--
+  Concept 02 — "Stained Glass"
+  Jewel-toned, luminous and architectural: a generated Gothic stained-glass window (Voronoi shards, lead lines,
+  rose-window medallion) anchors the hero. Animations: cascading pane light-up, periodic diagonal sunlight sweep,
+  gentle pane shimmer, drifting coloured light spill on the cream page, shard-assembly scroll reveals, glass-sheen hover.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Citywide Praise &amp; Worship Baptist Church — Ajax, ON</title>
+<meta name="description" content="Citywide Praise and Worship Baptist Church in Ajax, Ontario — my church, my community, my city. The place where everyone is somebody.">
+<link rel="icon" href="../assets/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#113662; --deep:#0a2147; --ink:#071631; --lead:#0b1830;
+  --gold:#d1a03a; --gold-d:#9c7218; --gold-l:#f1d28a;
+  --cream:#fbf8f2; --parch:#f3ebdb; --white:#fff;
+  --sapphire:#2a64c0; --ruby:#a8213e; --emerald:#1f7d5c; --amber:#d98a1f;
+  --text:#1c2333; --muted:#4a5266; --focus:var(--navy);
+  --serif:"EB Garamond",Garamond,"Times New Roman",serif;
+  --caps:"Cinzel","Trajan Pro",Georgia,serif;
+  --wrap:1180px;
+  --arch-cream:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 56'%3E%3Cpath d='M0 56V50H4A46.25 46.25 0 0 1 36 6A46.25 46.25 0 0 1 68 50H72V56Z' fill='%23fbf8f2'/%3E%3Cpath d='M0 50H4A46.25 46.25 0 0 1 36 6A46.25 46.25 0 0 1 68 50H72' fill='none' stroke='%23d1a03a' stroke-width='1.4'/%3E%3C/svg%3E");
+  --arch-navy:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 56'%3E%3Cpath d='M0 56V50H4A46.25 46.25 0 0 1 36 6A46.25 46.25 0 0 1 68 50H72V56Z' fill='%230a2147'/%3E%3Cpath d='M0 50H4A46.25 46.25 0 0 1 36 6A46.25 46.25 0 0 1 68 50H72' fill='none' stroke='%23d1a03a' stroke-width='1.4'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--text);font:400 1.1875rem/1.65 var(--serif);overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:var(--navy);text-underline-offset:.18em}
+h1,h2,h3{font-family:var(--caps);font-weight:600;line-height:1.15;margin:0 0 .5em;letter-spacing:.02em}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px}
+.dark{--focus:var(--gold-l);color:#eef1f7;background:var(--deep)}
+.dark a:not(.btn){color:var(--gold-l)}
+.wrap{width:min(100% - 32px,var(--wrap));margin-inline:auto}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--gold);color:var(--ink);padding:.5em 1em;font-family:var(--caps);font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+.eyebrow{font-family:var(--caps);font-size:.8rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-d);margin-bottom:.9rem}
+.dark .eyebrow{color:var(--gold)}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 3rem}
+.sec-head h2{font-size:clamp(1.8rem,4vw,2.7rem);color:var(--navy)}
+.dark .sec-head h2,.dark h2{color:#fff}
+.sec-head p{color:var(--muted)}
+.dark .sec-head p{color:#c9d2e3}
+.rule{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 auto 1.2rem;color:var(--gold)}
+.rule::before,.rule::after{content:"";height:1px;width:64px;background:linear-gradient(90deg,transparent,currentColor)}
+.rule::after{transform:scaleX(-1)}
+.rule i{width:10px;height:10px;transform:rotate(45deg);border:1.5px solid currentColor;background:var(--ruby)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:.7em 1.5em;font:700 .86rem/1 var(--caps);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,background .25s}
+.btn-gold{background:linear-gradient(180deg,#e3b65a,var(--gold));color:var(--ink);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),0 8px 22px -10px rgba(209,160,58,.8)}
+.btn-ghost{color:#fff;border:1.5px solid var(--gold);background:rgba(255,255,255,.03)}
+.btn-navy{background:var(--navy);color:#fff;box-shadow:inset 0 0 0 1px rgba(209,160,58,.55)}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold:hover{box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),0 12px 28px -10px rgba(209,160,58,.95)}
+.btn-ghost:hover{background:rgba(209,160,58,.14)}
+.btn-sm{min-height:40px;padding:.55em 1.2em;font-size:.78rem}
+
+/* Header */
+.site-head{position:sticky;top:0;z-index:50;background:rgba(7,22,49,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(209,160,58,.35);--focus:var(--gold-l)}
+.head-in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;min-width:0}
+.brand-mark{flex:none;width:48px;height:48px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 2px var(--gold),0 0 18px rgba(209,160,58,.35);overflow:hidden}
+.brand-mark img{width:42px;height:42px;border-radius:50%}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+.b1{font:700 1.25rem/1 var(--caps);letter-spacing:.12em}
+.b2{font-size:.82rem;color:#d7dceb;line-height:1.25;margin-top:3px}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:6px}
+.nav a:not(.btn){color:#e8ecf5;text-decoration:none;font:600 .8rem/1 var(--caps);letter-spacing:.12em;text-transform:uppercase;padding:.8em .75em;display:block;position:relative}
+.nav a:not(.btn)::after{content:"";position:absolute;left:.75em;right:.75em;bottom:.35em;height:1.5px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
+.nav a:not(.btn):hover::after,.nav a[aria-current]::after{transform:scaleX(1)}
+.nav li:last-child{margin-left:8px}
+.menu-btn{display:none;background:none;border:1.5px solid rgba(209,160,58,.6);color:#fff;width:46px;height:46px;border-radius:2px;cursor:pointer}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:20px;height:2px;background:currentColor;margin:auto;position:relative;transition:transform .3s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.menu-btn[aria-expanded="true"] span{background:transparent}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:959px){
+  .menu-btn{display:grid;place-items:center;flex:none}
+  .nav{position:absolute;left:0;right:0;top:100%;background:var(--ink);border-bottom:2px solid var(--gold);display:none}
+  .nav.open{display:block}
+  .nav ul{flex-direction:column;align-items:stretch;padding:8px 16px 20px}
+  .nav a:not(.btn){padding:1em .25em;border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav a:not(.btn)::after{display:none}
+  .nav li:last-child{margin:14px 0 0}
+  .nav .btn{width:100%}
+}
+@media (max-width:400px){.b1{font-size:1.08rem}.b2{font-size:.72rem}.brand-mark{width:42px;height:42px}.brand-mark img{width:36px;height:36px}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,7vw,96px) 0 120px;
+  background:radial-gradient(ellipse 60% 70% at 72% 42%,rgba(42,100,192,.35),transparent 70%),radial-gradient(ellipse 50% 40% at 20% 100%,rgba(168,33,62,.18),transparent 70%),linear-gradient(180deg,var(--deep),var(--ink))}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;
+  background:repeating-linear-gradient(60deg,transparent 0 46px,var(--gold) 46px 47px),repeating-linear-gradient(-60deg,transparent 0 46px,var(--gold) 46px 47px);
+  -webkit-mask:radial-gradient(ellipse at 70% 40%,#000,transparent 70%);mask:radial-gradient(ellipse at 70% 40%,#000,transparent 70%)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(2.2rem,5.2vw,4.1rem);color:#fff;font-weight:600;margin-bottom:.35em}
+.gilt{display:block;background:linear-gradient(100deg,#f6dc96 0%,var(--gold) 45%,#f3d68f 60%,#c48f26 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-style:italic;font-size:clamp(1.3rem,2.4vw,1.65rem);color:#dfe5f1;margin-bottom:1.6em}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:2.2rem}
+.plaque{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:center;max-width:470px;padding:18px 22px;border:1.5px solid rgba(209,160,58,.65);outline:1px solid rgba(209,160,58,.25);outline-offset:4px;background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.01))}
+.plaque .ico{grid-row:span 3;width:44px;height:60px}
+.pl-k{font:700 .78rem/1.2 var(--caps);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.pl-t{font-size:1.3rem;color:#fff;font-weight:500}
+.plaque address{font-style:normal;color:#cfd7e7;font-size:1.02rem}
+.hero-window{position:relative;margin:0;justify-self:center;width:min(440px,100%)}
+.hero-window::before{content:"";position:absolute;inset:4% -18% -6%;background:radial-gradient(closest-side,rgba(241,210,138,.32),rgba(42,100,192,.18) 55%,transparent);filter:blur(10px);z-index:0}
+.window{position:relative;z-index:1;width:100%;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
+.mote{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff3cf;box-shadow:0 0 8px 2px rgba(255,236,180,.6);opacity:0;pointer-events:none}
+.arcade{position:absolute;left:0;right:0;height:56px;background-repeat:repeat-x;background-size:72px 56px;background-position:bottom center;pointer-events:none;z-index:2}
+.hero>.arcade,.arch-bottom::after{bottom:-1px;background-image:var(--arch-cream)}
+.arch-top::before{content:"";position:absolute;left:0;right:0;top:-55px;height:56px;background:var(--arch-navy) repeat-x bottom center/72px 56px;pointer-events:none}
+.arch-bottom::after{content:"";position:absolute;left:0;right:0;height:56px;background-repeat:repeat-x;background-size:72px 56px;background-position:bottom center;pointer-events:none}
+@media (max-width:959px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-window{order:-1;width:min(300px,68vw)}
+  .hero{padding-top:32px}
+}
+
+/* SVG glass */
+.pane{transform-box:fill-box;transform-origin:center}
+.sweep{mix-blend-mode:screen;transform:translateX(-460px)}
+.lead{fill:none;stroke:var(--lead);stroke-width:4;stroke-linejoin:round}
+.inlay{fill:none;stroke:var(--gold);stroke-opacity:.42;stroke-width:.7;stroke-linejoin:round}
+
+/* Light spill */
+.spill{position:absolute;inset:0 0 auto;height:640px;overflow:hidden;pointer-events:none;z-index:0}
+.patch{position:absolute;filter:blur(26px);opacity:.34;mix-blend-mode:multiply}
+.patch span{display:block;width:100%;height:100%;clip-path:polygon(12% 0,88% 8%,100% 62%,64% 100%,4% 84%)}
+
+/* Sections */
+section{position:relative}
+.sec{padding:clamp(72px,9vw,120px) 0}
+.sec>.wrap{position:relative;z-index:1}
+.orn{display:flex;justify-content:center;padding:6px 0}
+.orn svg{width:220px;height:40px}
+
+/* Leaded card */
+.leaded{position:relative;background:#fffdf8;border:3px solid var(--deep);border-radius:3px;box-shadow:inset 0 0 0 5px #fffdf8,inset 0 0 0 6px rgba(209,160,58,.65),0 22px 44px -26px rgba(10,33,71,.45);overflow:hidden}
+.leaded::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.65) 46%,rgba(241,210,138,.25) 52%,transparent 66%);transform:translateX(-130%);mix-blend-mode:soft-light}
+@media (hover:hover) and (pointer:fine){
+  .leaded{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+  .leaded:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 5px #fffdf8,inset 0 0 0 6px var(--gold),0 30px 60px -26px rgba(10,33,71,.55)}
+  .leaded::after{transition:transform 1.1s cubic-bezier(.3,.6,.2,1)}
+  .leaded:hover::after{transform:translateX(130%)}
+}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:28px}
+.svc{padding:30px 28px 30px;text-align:center}
+.lancet{width:96px;height:152px;margin:0 auto 18px;filter:drop-shadow(0 8px 14px rgba(10,33,71,.25))}
+.svc .day{font:700 .82rem/1 var(--caps);letter-spacing:.24em;text-transform:uppercase;color:var(--gold-d)}
+.svc h3{font-size:1.3rem;color:var(--navy);margin:.55em 0 .3em}
+.svc time{display:block;font-size:1.15rem;font-weight:600;color:var(--text);margin-bottom:.7em}
+.svc p{color:var(--muted);margin:0}
+
+/* Who we are */
+.who-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.who-grid h2{font-size:clamp(1.8rem,3.6vw,2.5rem);color:var(--navy)}
+.who-grid .intro{font-size:1.25rem}
+.values{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.values h3{font-size:.95rem;letter-spacing:.08em;color:var(--navy);margin:0 0 .15em}
+.values li{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:rgba(255,255,255,.7);border:1.5px solid rgba(10,33,71,.85);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 4px rgba(209,160,58,.45)}
+.values p{margin:0;font-size:1rem;color:var(--muted);line-height:1.45}
+.q{flex:none;width:18px;height:18px;margin:6px 4px 0;transform:rotate(45deg);border:2px solid var(--lead);background:linear-gradient(135deg,#fff 0%,var(--c) 45%,#071631 140%);box-shadow:0 0 12px -2px var(--c)}
+.values li:nth-child(5n+1){--c:var(--ruby)}.values li:nth-child(5n+2){--c:var(--sapphire)}.values li:nth-child(5n+3){--c:var(--emerald)}.values li:nth-child(5n+4){--c:var(--amber)}.values li:nth-child(5n){--c:var(--gold)}
+.values-title{font:600 1rem/1.3 var(--caps);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);margin-bottom:1rem}
+
+/* Bishop */
+.bishop{padding:clamp(80px,10vw,130px) 0 clamp(110px,12vw,150px)}
+.bishop-grid{display:grid;grid-template-columns:auto 1fr;gap:clamp(36px,7vw,96px);align-items:center}
+.rose{position:relative;width:min(320px,72vw);aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 7px var(--lead),0 0 0 9px var(--gold),0 0 80px rgba(209,160,58,.28),0 0 140px rgba(42,100,192,.3);margin-inline:auto}
+.rose-o,.rose-i{position:absolute;border-radius:50%;overflow:hidden}
+.rose-o{inset:0;background:conic-gradient(var(--ruby) 0 30deg,var(--sapphire) 0 60deg,var(--amber) 0 90deg,var(--sapphire) 0 120deg,var(--emerald) 0 150deg,var(--sapphire) 0 180deg,var(--ruby) 0 210deg,var(--sapphire) 0 240deg,var(--amber) 0 270deg,var(--sapphire) 0 300deg,var(--emerald) 0 330deg,var(--sapphire) 0 360deg)}
+.rose-i{inset:19%;box-shadow:0 0 0 5px var(--lead);background:conic-gradient(from 15deg,#e2b552 0 45deg,var(--ruby) 0 90deg,#e2b552 0 135deg,var(--ruby) 0 180deg,#e2b552 0 225deg,var(--ruby) 0 270deg,#e2b552 0 315deg,var(--ruby) 0 360deg)}
+.rose-o::after,.rose-i::after{content:"";position:absolute;inset:0;background:repeating-conic-gradient(var(--lead) 0 1.6deg,transparent 1.6deg 30deg),radial-gradient(circle at 35% 30%,rgba(255,255,255,.45),transparent 55%),radial-gradient(circle,transparent 72%,rgba(7,22,49,.55))}
+.rose-i::after{background:repeating-conic-gradient(from 15deg,var(--lead) 0 2.2deg,transparent 2.2deg 45deg),radial-gradient(circle at 35% 30%,rgba(255,255,255,.4),transparent 60%)}
+.gl{position:absolute;inset:35%;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 4px var(--lead),0 0 0 6px var(--gold),inset 0 0 18px rgba(10,33,71,.15)}
+.gl span{font:700 clamp(1.6rem,4vw,2.3rem)/1 var(--caps);color:var(--navy);letter-spacing:.06em;padding-left:.06em}
+.bishop h2{font-size:clamp(2rem,4.4vw,3rem)}
+.role{font:600 .9rem/1 var(--caps);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:-.2em 0 1.4em}
+.bishop .bio{font-size:1.22rem;color:#dfe5f1;max-width:620px}
+.bishop .bio:first-of-type::first-letter{font:700 3.4em/.8 var(--caps);float:left;margin:.08em .12em 0 0;color:var(--gold)}
+.more{font:700 .84rem/1 var(--caps);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;display:inline-flex;gap:.6em;align-items:center;padding:.8em 0;border-bottom:1.5px solid currentColor}
+.more span{transition:transform .3s}.more:hover span{transform:translateX(5px)}
+
+/* Ministries */
+.min-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:26px}
+.min-card{display:flex;flex-direction:column;text-decoration:none;color:inherit;padding:18px 18px 26px}
+.quarry-wrap{filter:drop-shadow(0 -2px 0 var(--deep)) drop-shadow(2px 0 0 var(--deep)) drop-shadow(-2px 0 0 var(--deep));margin-bottom:20px}
+.quarry{height:150px;background:repeating-linear-gradient(45deg,transparent 0 24px,rgba(7,22,49,.9) 24px 26px),repeating-linear-gradient(-45deg,transparent 0 24px,rgba(7,22,49,.9) 24px 26px),radial-gradient(circle at 30% 25%,rgba(255,255,255,.55),transparent 55%),linear-gradient(160deg,var(--c1),var(--c2));
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V52A56 56 0 0 1 50 0A56 56 0 0 1 100 52V100Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V52A56 56 0 0 1 50 0A56 56 0 0 1 100 52V100Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;transition:filter .4s}
+.min-card:hover .quarry{filter:brightness(1.15) saturate(1.1)}
+.min-card h3{font-size:1.15rem;color:var(--navy);padding:0 6px}
+.min-card p{color:var(--muted);margin:0 0 1em;padding:0 6px;flex:1}
+.min-card .more{color:var(--gold-d);align-self:flex-start;margin-left:6px;font-size:.76rem;padding:.4em 0}
+.m1{--c1:#d24a64;--c2:#5c0c22}.m2{--c1:#4f86d9;--c2:#0f2f6e}.m3{--c1:#f3c565;--c2:#a35d0e}.m4{--c1:#4fb58e;--c2:#0b4434}
+
+/* Mission */
+.mission{padding:clamp(100px,12vw,160px) 0 clamp(130px,14vw,180px);text-align:center;
+  background:conic-gradient(from 168deg at 50% -8%,transparent 0deg,rgba(241,210,138,.12) 4deg,transparent 9deg,transparent 14deg,rgba(42,100,192,.18) 18deg,transparent 23deg,rgba(168,33,62,.12) 27deg,transparent 31deg),linear-gradient(180deg,var(--deep),var(--ink))}
+.mission .wrap{position:relative;z-index:1}
+.mission-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.mission-arch{position:absolute;left:50%;top:40px;width:min(760px,100%);transform:translateX(-50%);opacity:.5;pointer-events:none}
+.mission blockquote{margin:0 auto 1.6rem;max-width:860px}
+.mission blockquote p{font:italic 500 clamp(1.6rem,3.8vw,2.6rem)/1.35 var(--serif);color:#fff}
+.mission cite{font:700 .9rem/1 var(--caps);letter-spacing:.24em;font-style:normal;color:var(--gold);text-transform:uppercase}
+.mission .witness{max-width:620px;margin:0 auto;color:#cfd7e7;font-size:1.22rem}
+
+/* Give */
+.give-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:22px;margin-bottom:2.6rem}
+.give-card{padding:26px 24px 24px}
+.give-card::before{content:"";position:absolute;left:6px;right:6px;top:6px;height:10px;background:linear-gradient(90deg,var(--c1),var(--c2));border-bottom:2px solid var(--lead)}
+.give-card h3{font-size:1.08rem;color:var(--navy);margin-top:.5em}
+.give-card p{margin:0;color:var(--muted);font-size:1.05rem;overflow-wrap:anywhere}
+.give-foot{text-align:center}
+.give-foot .verse{font-style:italic;font-size:1.35rem;color:var(--navy);margin-bottom:1.2rem}
+.give-foot .verse cite{display:block;font:700 .8rem/1.8 var(--caps);letter-spacing:.2em;font-style:normal;color:var(--gold-d);text-transform:uppercase}
+
+/* Visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.visit h2{font-size:clamp(1.9rem,4vw,2.7rem);color:var(--navy)}
+.info{list-style:none;padding:0;margin:0 0 2rem;display:grid;gap:14px}
+.info li{display:grid;grid-template-columns:120px 1fr;gap:12px;padding-bottom:12px;border-bottom:1px solid rgba(156,114,24,.3)}
+.info .k{font:700 .76rem/1.9 var(--caps);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d)}
+.info address{font-style:normal}
+.info a{overflow-wrap:anywhere}
+.ph{position:relative;aspect-ratio:4/5;max-width:440px;width:100%;margin-inline:auto;display:grid;place-items:end center;padding-bottom:28px;
+  background:radial-gradient(circle at 50% 30%,rgba(241,210,138,.5),transparent 55%),repeating-linear-gradient(45deg,transparent 0 22px,rgba(255,255,255,.07) 22px 23px),repeating-linear-gradient(-45deg,transparent 0 22px,rgba(255,255,255,.07) 22px 23px),linear-gradient(170deg,#2b5aa3,var(--deep) 70%);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V38A62 62 0 0 1 50 0A62 62 0 0 1 100 38V100Z'/%3E%3C/svg%3E") center/100% 100%;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V38A62 62 0 0 1 50 0A62 62 0 0 1 100 38V100Z'/%3E%3C/svg%3E") center/100% 100%}
+.ph img{position:absolute;left:50%;top:34%;width:30%;transform:translate(-50%,-50%);border-radius:50%;background:#fff;box-shadow:0 0 0 4px var(--gold),0 0 40px rgba(241,210,138,.5)}
+.ph figcaption{font:600 .78rem/1 var(--caps);letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(7,22,49,.55);padding:.7em 1.1em;border:1px solid rgba(209,160,58,.6)}
+
+/* Footer */
+.foot{position:relative;padding:90px 0 36px;font-size:1.05rem}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(209,160,58,.3)}
+.foot h2{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1em}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.foot address{font-style:normal;color:#cfd7e7}
+.foot .brand{margin-bottom:16px}
+.foot small{display:block;color:#aeb8cc;font-size:.95rem;padding-top:24px;text-align:center}
+.foot a:not(.btn){color:#e8ecf5}
+
+@media (max-width:959px){
+  .who-grid,.visit-grid,.bishop-grid{grid-template-columns:1fr}
+  .bishop-grid{text-align:center}.bishop .bio{margin-inline:auto}.bishop .bio:first-of-type::first-letter{float:none;font-size:1.6em;margin:0}
+  .foot-grid{grid-template-columns:1fr 1fr}.foot-grid>div:first-child{grid-column:1/-1}
+}
+@media (max-width:620px){
+  .values{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .info li{grid-template-columns:1fr;gap:2px}
+  .cta .btn{flex:1 1 100%}
+  .plaque{grid-template-columns:1fr}.plaque .ico{display:none}
+}
+
+/* ============ Motion (only when the user allows it) ============ */
+@media (prefers-reduced-motion:no-preference){
+  .motion .pane{opacity:0;animation:paneIn 1.1s cubic-bezier(.2,.8,.2,1) var(--d) forwards}
+  .motion .pane.sh{animation:paneIn 1.1s cubic-bezier(.2,.8,.2,1) var(--d) forwards,shimmer var(--s) ease-in-out calc(var(--d) + 1.2s) infinite alternate}
+  .motion .sweep{animation:sweep 9s cubic-bezier(.45,.05,.4,1) 3.4s infinite}
+  .motion .sweep.two{animation-delay:3.75s}
+  .motion .mote{animation:mote var(--t) linear var(--dl) infinite}
+  .motion .patch{animation:drift var(--t) ease-in-out infinite alternate}
+  .motion .hero-window::before{animation:glow 9s ease-in-out 3.4s infinite}
+  .motion .rose-o{animation:spin 160s linear infinite}
+  .motion .rose-i{animation:spin 120s linear infinite reverse}
+  .motion .reveal{opacity:0;transform:scale(.9) rotate(var(--r,-1.5deg));clip-path:polygon(18% 12%,55% 0,92% 20%,84% 74%,46% 100%,6% 82%);
+    transition:opacity .8s ease,transform 1s cubic-bezier(.2,.8,.2,1),clip-path 1.1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0) * 110ms)}
+  .motion .reveal.in{opacity:1;transform:none;clip-path:polygon(-20% -20%,50% -20%,120% -20%,120% 120%,50% 120%,-20% 120%)}
+  .motion .leaded.reveal.in{transition:opacity .8s ease,transform .45s cubic-bezier(.2,.7,.2,1),clip-path 1.1s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+  .motion .reveal.done{transition-delay:0s;clip-path:none}
+  .motion .hero-copy>*{animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+  .motion .hero-copy>:nth-child(2){animation-delay:.12s}.motion .hero-copy>:nth-child(3){animation-delay:.24s}
+  .motion .hero-copy>:nth-child(4){animation-delay:.36s}.motion .hero-copy>:nth-child(5){animation-delay:.5s}
+  .is-paused .pane,.is-paused .sweep,.is-paused .mote,.is-paused .patch,.is-paused.hero-window::before,.is-paused .hero-window::before{animation-play-state:paused}
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){.motion .leaded.reveal.in:hover{transform:translateY(-6px)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+@keyframes paneIn{0%{opacity:0;transform:scale(.55) rotate(-8deg)}60%{opacity:1}100%{opacity:1;transform:none}}
+@keyframes shimmer{from{fill-opacity:1}to{fill-opacity:.72}}
+@keyframes sweep{0%{transform:translateX(-460px)}48%,100%{transform:translateX(560px)}}
+@keyframes mote{0%{opacity:0;transform:translate(0,0)}15%{opacity:.9}85%{opacity:.6}100%{opacity:0;transform:translate(var(--x),-220px)}}
+@keyframes drift{from{transform:translate(0,0) rotate(0) scale(1)}to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(1.12)}}
+@keyframes glow{0%,100%{opacity:.75}35%{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sweep,.mote{display:none}*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Shared glass gradients (filled by script) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs id="glassDefs"></defs></svg>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="index.html" aria-label="Citywide Praise and Worship Baptist Church, home">
+      <span class="brand-mark"><img src="../assets/images/emblem.jpg" alt="" width="42" height="42"></span>
+      <span class="brand-text"><span class="b1">Citywide</span><span class="b2">Praise &amp; Worship Baptist Church</span></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="index.html">About &amp; Beliefs</a></li>
+        <li><a href="index.html">Ministries</a></li>
+        <li><a href="index.html">Plan a Visit</a></li>
+        <li><a class="btn btn-gold btn-sm" href="index.html">Give</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero dark" id="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Citywide Praise &amp; Worship · Ajax, Ontario</p>
+        <h1 id="hero-title">The place where <span class="gilt">everyone is somebody.</span></h1>
+        <p class="lede">My church, my community, my city.</p>
+        <div class="cta">
+          <a class="btn btn-gold" href="index.html">Plan your visit</a>
+          <a class="btn btn-ghost" href="index.html">What we believe</a>
+        </div>
+        <div class="plaque">
+          <svg class="ico" viewBox="0 0 44 60" aria-hidden="true"><path d="M3 58V24A22 22 0 0 1 22 3A22 22 0 0 1 41 24V58Z" fill="rgba(42,100,192,.5)" stroke="#d1a03a" stroke-width="2"/><path d="M22 3V58M3 34H41" stroke="#d1a03a" stroke-width="1.5"/><circle cx="22" cy="34" r="6" fill="#f1d28a" stroke="#0b1830" stroke-width="1.5"/></svg>
+          <span class="pl-k">Sunday Worship Service</span>
+          <span class="pl-t">10:30 AM – 12:30 PM</span>
+          <address>80 Falby Court, Ajax, ON L1S 1N4</address>
+        </div>
+      </div>
+
+      <figure class="hero-window" id="heroWindow">
+        <svg class="window" id="window" viewBox="0 28 400 600" role="img" aria-labelledby="winTitle">
+          <title id="winTitle">A stained-glass Gothic window in sapphire, ruby, emerald and gold, with the Citywide emblem in a rose medallion at its centre</title>
+          <defs>
+            <clipPath id="archClip"><path d="M20 610V320A300 300 0 0 1 200 45.05A300 300 0 0 1 380 320V610Z"/></clipPath>
+            <clipPath id="roseClip"><circle cx="200" cy="300" r="150"/></clipPath>
+            <clipPath id="medClip"><circle cx="200" cy="300" r="55"/></clipPath>
+            <linearGradient id="sweepG" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stop-color="#fff6dc" stop-opacity="0"/><stop offset=".5" stop-color="#fff6dc" stop-opacity=".6"/><stop offset="1" stop-color="#fff6dc" stop-opacity="0"/>
+            </linearGradient>
+            <radialGradient id="sunG" cx=".32" cy=".2" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+          </defs>
+          <path d="M20 610V320A300 300 0 0 1 200 45.05A300 300 0 0 1 380 320V610Z" fill="#06122a"/>
+          <g clip-path="url(#archClip)">
+            <g id="outerPanes"></g>
+            <path id="outerLead" class="lead"/><path id="outerInlay" class="inlay"/>
+            <g clip-path="url(#roseClip)">
+              <circle cx="200" cy="300" r="150" fill="#06122a"/>
+              <g id="rosePanes"></g>
+              <path id="roseLead" class="lead"/><path id="roseInlay" class="inlay"/>
+            </g>
+            <circle class="pane" style="--d:1.25s" cx="200" cy="118" r="24" fill="url(#g-gold-a)"/>
+            <circle cx="200" cy="118" r="24" fill="none" stroke="#0b1830" stroke-width="5"/>
+            <circle cx="200" cy="118" r="24" fill="none" stroke="#d1a03a" stroke-width="1"/>
+            <circle cx="200" cy="300" r="150" fill="none" stroke="#0b1830" stroke-width="8"/>
+            <circle cx="200" cy="300" r="150" fill="none" stroke="#d1a03a" stroke-width="1.4"/>
+            <rect width="400" height="640" fill="url(#sunG)" style="mix-blend-mode:screen"/>
+            <g transform="rotate(28 200 320)">
+              <rect class="sweep" x="-90" y="-400" width="180" height="1400" fill="url(#sweepG)"/>
+              <rect class="sweep two" x="-30" y="-400" width="60" height="1400" fill="url(#sweepG)"/>
+            </g>
+          </g>
+          <circle cx="200" cy="300" r="64" fill="#fff" stroke="#0b1830" stroke-width="5"/>
+          <circle cx="200" cy="300" r="64" fill="none" stroke="#d1a03a" stroke-width="2"/>
+          <circle cx="200" cy="300" r="58.5" fill="none" stroke="#d1a03a" stroke-width="2.2" stroke-dasharray="0.1 6" stroke-linecap="round"/>
+          <image href="../assets/images/emblem.jpg" x="146" y="246" width="108" height="108" clip-path="url(#medClip)" preserveAspectRatio="xMidYMid slice"/>
+          <path d="M20 610V320A300 300 0 0 1 200 45.05A300 300 0 0 1 380 320V610Z" fill="none" stroke="#0b1830" stroke-width="14"/>
+          <path d="M20 610V320A300 300 0 0 1 200 45.05A300 300 0 0 1 380 320V610Z" fill="none" stroke="#d1a03a" stroke-width="1.8"/>
+          <rect x="4" y="606" width="392" height="16" rx="2" fill="#0a2147" stroke="#d1a03a" stroke-width="1.5"/>
+        </svg>
+      </figure>
+    </div>
+    <div class="arcade" aria-hidden="true"></div>
+  </section>
+
+  <!-- Weekly services, with coloured light spilling from the window -->
+  <section class="sec services" id="services" aria-labelledby="svc-title">
+    <div class="spill" id="spill" aria-hidden="true"></div>
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow">Weekly Services</p>
+        <div class="rule" aria-hidden="true"><i></i></div>
+        <h2 id="svc-title">Come as you are</h2>
+        <p>Praise, prayer and the preaching of God’s Word — there is a seat saved for you.</p>
+      </header>
+      <div class="services-grid" data-stagger>
+        <article class="leaded svc reveal">
+          <svg class="lancet" data-glass="sapphire" data-seed="11" viewBox="0 0 120 190" aria-hidden="true"></svg>
+          <p class="day">Sunday</p>
+          <h3>Sunday Worship Service</h3>
+          <time>10:30 AM – 12:30 PM</time>
+          <p>Praise, prayer and the preaching of God’s Word. Everyone is welcome — come as you are.</p>
+        </article>
+        <article class="leaded svc reveal">
+          <svg class="lancet" data-glass="amber" data-seed="27" viewBox="0 0 120 190" aria-hidden="true"></svg>
+          <p class="day">Monday</p>
+          <h3>Morning Prayer</h3>
+          <time>5:00 AM – 5:30 AM</time>
+          <p>Starting the week together in prayer, seeking God before the day begins.</p>
+        </article>
+        <article class="leaded svc reveal">
+          <svg class="lancet" data-glass="ruby" data-seed="43" viewBox="0 0 120 190" aria-hidden="true"></svg>
+          <p class="day">Thursday</p>
+          <h3>Bible Study &amp; Prayer</h3>
+          <time>7:00 PM – 8:30 PM</time>
+          <p>Digging into Scripture together and getting the spiritual connection through prayer.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="orn" aria-hidden="true">
+    <svg viewBox="0 0 220 40"><path d="M0 20H86M134 20H220" stroke="#d1a03a"/><path d="M96 36V20A15 15 0 0 1 110 4A15 15 0 0 1 124 20V36Z" fill="#2a64c0" stroke="#0b1830" stroke-width="2.5"/><path d="M110 4V36M96 24H124" stroke="#0b1830" stroke-width="1.5"/><circle cx="110" cy="24" r="3.5" fill="#d1a03a"/></svg>
+  </div>
+
+  <section class="sec who" id="who" aria-labelledby="who-title">
+    <div class="wrap who-grid">
+      <div class="reveal">
+        <p class="eyebrow">Who We Are</p>
+        <h2 id="who-title">A growing, family-oriented church</h2>
+        <p class="intro">Citywide Praise and Worship Church is a growing, family-oriented church committed to providing people with the life-changing message of the Gospel. It is a place where everyone is somebody.</p>
+        <p>We exist to glorify God by knowing God thoroughly, growing in Him consistently, and sharing Him passionately. Whether single or married, with children or without, Citywide Praise and Worship Church has a place for you.</p>
+        <a class="more" href="index.html">About &amp; Beliefs <span aria-hidden="true">→</span></a>
+      </div>
+      <div>
+        <p class="values-title reveal">We are a church that is…</p>
+        <ul class="values" data-stagger>
+          <li class="reveal"><span class="q" aria-hidden="true"></span><div><h3>Grounded</h3><p>Rooted in the Word of God and prayer.</p></div></li>
+          <li class="reveal"><span class="q" aria-hidden="true"></span><div><h3>Relevant</h3><p>Meeting people where they are.</p></div></li>
+          <li class="reveal"><span class="q" aria-hidden="true"></span><div><h3>Diversified</h3><p>Young and old from many denominational backgrounds.</p></div></li>
+          <li class="reveal"><span class="q" aria-hidden="true"></span><div><h3>Unified</h3><p>Positive, enthusiastic people.</p></div></li>
+          <li class="reveal"><span class="q" aria-hidden="true"></span><div><h3>Community-minded</h3><p>Caring for our “next door” neighbours.</p></div></li>
+          <li class="reveal"><span class="q" aria-hidden="true"></span><div><h3>Global-minded</h3><p>Sharing the love of Jesus with the whole world.</p></div></li>
+          <li class="reveal"><span class="q" aria-hidden="true"></span><div><h3>Blessed</h3><p>Proud of our heritage — our best days still ahead.</p></div></li>
+          <li class="reveal"><span class="q" aria-hidden="true"></span><div><h3>Generous</h3><p>A river for God’s blessing instead of a reservoir.</p></div></li>
+          <li class="reveal"><span class="q" aria-hidden="true"></span><div><h3>Caring</h3><p>A “hospital,” not a “hotel.”</p></div></li>
+          <li class="reveal"><span class="q" aria-hidden="true"></span><div><h3>Growing</h3><p>Always room for one more.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark bishop arch-top arch-bottom" id="leadership" aria-labelledby="bishop-title">
+    <div class="wrap bishop-grid">
+      <div class="rose reveal" role="img" aria-label="Rose-window monogram GL for Bishop George Lwamba">
+        <div class="rose-o"></div><div class="rose-i"></div>
+        <div class="gl"><span aria-hidden="true">GL</span></div>
+      </div>
+      <div class="reveal" style="--i:1">
+        <p class="eyebrow">Our Leadership</p>
+        <h2 id="bishop-title">Bishop George Lwamba</h2>
+        <p class="role">Bishop</p>
+        <p class="bio">Bishop George Lwamba is a devoted servant of God, a visionary spiritual leader, and a passionate preacher of the Gospel of Jesus Christ at Citywide Praise and Worship Church.</p>
+        <p class="bio">His vision is to advance the Kingdom of God, inspire generations, and make a lasting impact on communities for the glory of God.</p>
+        <a class="more" href="index.html">Read more <span aria-hidden="true">→</span><span class="sr-hint" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"> about Bishop George Lwamba</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ministries" id="ministries" aria-labelledby="min-title">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow">Ministries</p>
+        <div class="rule" aria-hidden="true"><i></i></div>
+        <h2 id="min-title">Many panes, one light</h2>
+        <p>Every ministry is its own colour of glass — together they let the light of Christ shine through.</p>
+      </header>
+      <div class="min-grid" data-stagger>
+        <a class="leaded min-card reveal" href="index.html">
+          <div class="quarry-wrap" aria-hidden="true"><div class="quarry m1"></div></div>
+          <h3>Women’s Ministry</h3><p>Sisterhood, mentoring, Bible study and conferences.</p><span class="more">Learn more <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="leaded min-card reveal" href="index.html">
+          <div class="quarry-wrap" aria-hidden="true"><div class="quarry m2"></div></div>
+          <h3>Men’s Ministry</h3><p>Integrity, family and education.</p><span class="more">Learn more <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="leaded min-card reveal" href="index.html">
+          <div class="quarry-wrap" aria-hidden="true"><div class="quarry m3"></div></div>
+          <h3>Children’s Ministry</h3><p>Building character, learning Scripture and knowing Jesus.</p><span class="more">Learn more <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="leaded min-card reveal" href="index.html">
+          <div class="quarry-wrap" aria-hidden="true"><div class="quarry m4"></div></div>
+          <h3>Prayer &amp; Bible Study</h3><p>Teaching, testimonies and praying with families.</p><span class="more">Learn more <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark mission arch-top arch-bottom" id="mission" aria-labelledby="mission-title">
+    <div class="mission-bg" aria-hidden="true"><svg class="mission-arch" viewBox="0 0 400 520"><path d="M20 520V300A300 300 0 0 1 200 25A300 300 0 0 1 380 300V520" fill="none" stroke="#d1a03a" stroke-width="1.2"/><path d="M44 520V304A270 270 0 0 1 200 58A270 270 0 0 1 356 304V520" fill="none" stroke="#d1a03a" stroke-width=".6" stroke-dasharray="2 6"/></svg></div>
+    <div class="wrap reveal">
+      <p class="eyebrow" id="mission-title">Our Mission</p>
+      <div class="rule" aria-hidden="true"><i></i></div>
+      <blockquote>
+        <p>“Go and make disciples of all nations… teaching them to obey everything I have commanded you.”</p>
+        <footer><cite>Matthew 28:19–20</cite></footer>
+      </blockquote>
+      <p class="witness">Witnessing is more than talking about Jesus; it is living in such a way that others want to know Him too.</p>
+    </div>
+  </section>
+
+  <section class="sec give" id="give" aria-labelledby="give-title">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow">Give</p>
+        <div class="rule" aria-hidden="true"><i></i></div>
+        <h2 id="give-title">A river, not a reservoir</h2>
+        <p>Your generosity helps carry God’s blessing into our community and our city.</p>
+      </header>
+      <div class="give-grid" data-stagger>
+        <article class="leaded give-card reveal" style="--c1:#2a64c0;--c2:#0f2f6e"><h3>CanadaHelps</h3><p>Give securely online and receive a tax receipt.</p></article>
+        <article class="leaded give-card reveal" style="--c1:#e2b552;--c2:#a3741c"><h3>Interac e-Transfer</h3><p>Send to <a href="mailto:citywidepraise7@gmail.com">citywidepraise7@gmail.com</a> — autodeposit is on.</p></article>
+        <article class="leaded give-card reveal" style="--c1:#1f8a63;--c2:#0b4434"><h3>PayPal</h3><p>Use “Send” to <a href="mailto:citywidepraise7@gmail.com">citywidepraise7@gmail.com</a>.</p></article>
+        <article class="leaded give-card reveal" style="--c1:#b3243f;--c2:#5c0c22"><h3>In Person</h3><p>Give during our Sunday Worship Service.</p></article>
+      </div>
+      <div class="give-foot reveal">
+        <p class="verse">“God loves a cheerful giver.” <cite>2 Corinthians 9:7</cite></p>
+        <a class="btn btn-navy" href="index.html">Ways to give</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="orn" aria-hidden="true">
+    <svg viewBox="0 0 220 40"><path d="M0 20H86M134 20H220" stroke="#d1a03a"/><path d="M96 36V20A15 15 0 0 1 110 4A15 15 0 0 1 124 20V36Z" fill="#a8213e" stroke="#0b1830" stroke-width="2.5"/><path d="M110 4V36M96 24H124" stroke="#0b1830" stroke-width="1.5"/><circle cx="110" cy="24" r="3.5" fill="#d1a03a"/></svg>
+  </div>
+
+  <section class="sec visit" id="visit" aria-labelledby="visit-title">
+    <div class="wrap visit-grid">
+      <div class="reveal">
+        <p class="eyebrow">Plan a Visit</p>
+        <h2 id="visit-title">We’d love to welcome you</h2>
+        <ul class="info">
+          <li><span class="k">Address</span><address>80 Falby Court, Ajax, ON L1S 1N4</address></li>
+          <li><span class="k">Sunday</span><span>Worship Service, 10:30 AM – 12:30 PM</span></li>
+          <li><span class="k">Phone</span><a href="tel:+19056861757">905-686-1757</a></li>
+          <li><span class="k">Cell</span><a href="tel:+12893881705">289-388-1705</a></li>
+          <li><span class="k">Email</span><a href="mailto:citywidepraise7@gmail.com">citywidepraise7@gmail.com</a></li>
+        </ul>
+        <a class="btn btn-navy" href="index.html">Plan your visit</a>
+      </div>
+      <figure class="ph reveal" style="--i:1">
+        <img src="../assets/images/emblem.jpg" alt="" width="132" height="132">
+        <figcaption>Photo coming soon</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<footer class="dark foot arch-top">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="Citywide Praise and Worship Baptist Church, home">
+          <span class="brand-mark"><img src="../assets/images/emblem.jpg" alt="" width="42" height="42"></span>
+          <span class="brand-text"><span class="b1">Citywide</span><span class="b2">Praise &amp; Worship Baptist Church</span></span>
+        </a>
+        <p style="color:#cfd7e7;max-width:380px">My church, my community, my city — the place where everyone is somebody.</p>
+      </div>
+      <div>
+        <h2>Visit &amp; Contact</h2>
+        <address>80 Falby Court<br>Ajax, ON L1S 1N4</address>
+        <ul style="margin-top:12px">
+          <li>Phone <a href="tel:+19056861757">905-686-1757</a></li>
+          <li>Cell <a href="tel:+12893881705">289-388-1705</a></li>
+          <li><a href="mailto:citywidepraise7@gmail.com">citywidepraise7@gmail.com</a></li>
+        </ul>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">About &amp; Beliefs</a></li>
+          <li><a href="index.html">Ministries</a></li>
+          <li><a href="index.html">Plan a Visit</a></li>
+          <li><a href="index.html">Give</a></li>
+        </ul>
+      </nav>
+    </div>
+    <small>© <span id="yr">2026</span> Citywide Praise and Worship Baptist Church · Registered charity 839404886RR0001</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce) root.classList.add('motion');
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var NS='http://www.w3.org/2000/svg';
+
+  /* ---- Glass palette: light, mid, dark stops ---- */
+  var GLASS={
+    sapphire:['#8fbaf2','#2a64c0','#0d2a66'], ruby:['#f28a9b','#b3243f','#560a1f'],
+    emerald:['#86dbb4','#1f8a63','#0a3f30'], amber:['#ffdc8f','#e3962a','#8a4b08'],
+    gold:['#fff1c4','#e2b552','#9c6d16'], navy:['#6a8bc4','#1d3f7a','#0a1d42'], pale:['#f6f9ff','#bfd0ec','#6f88b6']
+  };
+  var defs=document.getElementById('glassDefs'), g='';
+  Object.keys(GLASS).forEach(function(k){
+    var c=GLASS[k];
+    g+='<linearGradient id="g-'+k+'-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset=".5" stop-color="'+c[1]+'"/><stop offset="1" stop-color="'+c[2]+'"/></linearGradient>';
+    g+='<linearGradient id="g-'+k+'-b" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset=".6" stop-color="'+c[1]+'"/><stop offset="1" stop-color="'+c[2]+'"/></linearGradient>';
+  });
+  defs.innerHTML=g;
+
+  /* ---- Seeded random + Voronoi via half-plane clipping ---- */
+  function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function clip(poly,a,b,c){
+    var out=[],n=poly.length;
+    for(var i=0;i<n;i++){
+      var P=poly[i],Q=poly[(i+1)%n],pi=a*P[0]+b*P[1]<=c,qi=a*Q[0]+b*Q[1]<=c;
+      if(pi)out.push(P);
+      if(pi!==qi){var t=(c-a*P[0]-b*P[1])/(a*(Q[0]-P[0])+b*(Q[1]-P[1]));out.push([P[0]+t*(Q[0]-P[0]),P[1]+t*(Q[1]-P[1])]);}
+    }
+    return out;
+  }
+  function voronoi(seeds,box){
+    return seeds.map(function(s,i){
+      var poly=[[box[0],box[1]],[box[2],box[1]],[box[2],box[3]],[box[0],box[3]]];
+      for(var j=0;j<seeds.length&&poly.length>2;j++){
+        if(j===i)continue;var o=seeds[j];
+        poly=clip(poly,o[0]-s[0],o[1]-s[1],(o[0]*o[0]+o[1]*o[1]-s[0]*s[0]-s[1]*s[1])/2);
+      }
+      return poly;
+    });
+  }
+  function pts(p){return p.map(function(v){return v[0].toFixed(1)+','+v[1].toFixed(1);}).join(' ');}
+  function pathOf(cells){return cells.filter(function(p){return p.length>2;}).map(function(p){return 'M'+pts(p).replace(/ /g,'L')+'Z';}).join('');}
+  function pick(r,w){var tot=0,k;for(k in w)tot+=w[k];var x=r()*tot;for(k in w){x-=w[k];if(x<=0)return k;}return k;}
+  function paneSVG(poly,col,r,delay,shimmer){
+    return '<polygon class="pane'+(shimmer?' sh':'')+'" points="'+pts(poly)+'" fill="url(#g-'+col+'-'+(r()<.5?'a':'b')+')" style="--d:'+delay.toFixed(2)+'s;--s:'+(3.5+r()*4).toFixed(2)+'s"/>';
+  }
+
+  /* ---- Hero window ---- */
+  var CX=200,CY=300,r=rng(7);
+  // Outer shards: jittered grid, skipping the area hidden behind the rose
+  var outer=[],cols=7,rows=11,cw=400/cols,ch=600/rows;
+  for(var y=0;y<rows;y++)for(var x=0;x<cols;x++){
+    var sx=(x+.5+(r()-.5)*.8)*cw,sy=30+(y+.5+(r()-.5)*.8)*ch;
+    if(Math.hypot(sx-CX,sy-CY)>128)outer.push([sx,sy]);
+  }
+  var oc=voronoi(outer,[0,20,400,640]),html='';
+  oc.forEach(function(p,i){
+    if(p.length<3)return;
+    var s=outer[i],w;
+    if(s[1]<190)w={amber:2,gold:1.4,sapphire:3,ruby:1,pale:.6};
+    else if(s[1]<460)w={sapphire:4,navy:2.2,emerald:1,ruby:1.1,pale:.8};
+    else w={emerald:3,sapphire:3,navy:1.4,amber:.9};
+    var d=1.25+Math.hypot(s[0]-CX,s[1]-CY)/320*1.5+r()*.3;
+    html+=paneSVG(p,pick(r,w),r,d,r()<.4);
+  });
+  document.getElementById('outerPanes').innerHTML=html;
+  var op=pathOf(oc);document.getElementById('outerLead').setAttribute('d',op);document.getElementById('outerInlay').setAttribute('d',op);
+
+  // Rose window: centre + two symmetric rings
+  var rose=[[CX,CY]],ringCols=[];
+  for(var k=0;k<8;k++){var a=k/8*Math.PI*2-Math.PI/2;rose.push([CX+Math.cos(a)*88,CY+Math.sin(a)*88]);ringCols.push(k%2?'gold':'ruby');}
+  var ring2=['sapphire','emerald','sapphire','amber'];
+  for(k=0;k<16;k++){a=(k+.5)/16*Math.PI*2-Math.PI/2;rose.push([CX+Math.cos(a)*136,CY+Math.sin(a)*136]);ringCols.push(ring2[k%4]);}
+  var rc=voronoi(rose,[40,140,360,460]);html='';
+  rc.forEach(function(p,i){
+    if(i===0||p.length<3)return;
+    var d=i<=8?.35+(i-1)*.07:.9+(i-9)*.035;
+    html+=paneSVG(p,ringCols[i-1],r,d,i%3===0);
+  });
+  document.getElementById('rosePanes').innerHTML=html;
+  var rp=pathOf(rc.slice(1));document.getElementById('roseLead').setAttribute('d',rp);document.getElementById('roseInlay').setAttribute('d',rp);
+
+  /* ---- Mini lancet windows on service cards ---- */
+  document.querySelectorAll('.lancet').forEach(function(svg){
+    var main=svg.getAttribute('data-glass'),rr=rng(+svg.getAttribute('data-seed')),seeds=[];
+    for(var yy=0;yy<4;yy++)for(var xx=0;xx<3;xx++)seeds.push([(xx+.5+(rr()-.5)*.8)*40,(yy+.5+(rr()-.5)*.8)*47.5]);
+    var cells=voronoi(seeds,[0,0,120,190]),arch='M6 190V80A70 70 0 0 1 60 11.9A70 70 0 0 1 114 80V190Z',id='lc'+svg.getAttribute('data-seed');
+    var w={};w[main]=5;w.navy=2;w.gold=1.5;w.pale=.6;
+    var s='<defs><clipPath id="'+id+'"><path d="'+arch+'"/></clipPath></defs><path d="'+arch+'" fill="#06122a"/><g clip-path="url(#'+id+')">';
+    cells.forEach(function(p){if(p.length>2)s+='<polygon points="'+pts(p)+'" fill="url(#g-'+pick(rr,w)+'-'+(rr()<.5?'a':'b')+')" fill-opacity=".95"/>';});
+    s+='<path class="lead" style="stroke-width:2.6" d="'+pathOf(cells)+'"/><circle cx="60" cy="70" r="16" fill="url(#g-gold-a)" stroke="#0b1830" stroke-width="3"/><rect width="120" height="190" fill="url(#sunG)"/></g>';
+    s+='<path d="'+arch+'" fill="none" stroke="#0b1830" stroke-width="6"/><path d="'+arch+'" fill="none" stroke="#d1a03a" stroke-width="1"/>';
+    svg.innerHTML=s;
+  });
+
+  /* ---- Light spill patches beneath the hero ---- */
+  var spill=document.getElementById('spill');
+  [['rgba(42,100,192,.85)',58,2,300,220,-40,30,-6],['rgba(168,33,62,.8)',70,18,240,190,30,20,8],['rgba(217,138,31,.85)',44,24,260,200,-20,40,5],
+   ['rgba(31,125,92,.8)',80,40,220,170,40,-20,-7],['rgba(209,160,58,.9)',30,8,200,150,30,30,6],['rgba(42,100,192,.7)',10,30,260,200,40,-30,-4],
+   ['rgba(168,33,62,.6)',86,4,180,150,-30,40,9]].forEach(function(p,i){
+    var d=document.createElement('div');d.className='patch';
+    d.style.cssText='left:'+p[1]+'%;top:'+p[2]+'%;width:'+p[3]+'px;height:'+p[4]+'px;--dx:'+p[5]+'px;--dy:'+p[6]+'px;--rot:'+p[7]+'deg;--t:'+(16+i*2.5)+'s';
+    d.innerHTML='<span style="transform:skewX(-14deg);background:radial-gradient(circle at 40% 40%,'+p[0]+',transparent 75%)"></span>';
+    spill.appendChild(d);
+  });
+
+  /* ---- Dust motes floating in the light ---- */
+  var hw=document.getElementById('heroWindow');
+  if(!reduce)for(var m=0;m<12;m++){
+    var mo=document.createElement('span');mo.className='mote';mo.setAttribute('aria-hidden','true');
+    mo.style.cssText='left:'+(15+Math.random()*70)+'%;top:'+(35+Math.random()*55)+'%;--t:'+(9+Math.random()*8).toFixed(1)+'s;--dl:'+(Math.random()*8).toFixed(1)+'s;--x:'+((Math.random()-.5)*60).toFixed(0)+'px';
+    hw.appendChild(mo);
+  }
+
+  /* ---- Scroll reveals (shards assembling) ---- */
+  document.querySelectorAll('[data-stagger]').forEach(function(p){
+    Array.prototype.forEach.call(p.children,function(c,i){c.style.setProperty('--i',i);c.style.setProperty('--r',((i%2?1:-1)*(1+i%3*.6))+'deg');});
+  });
+  var reveals=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add('in');io.unobserve(t);setTimeout(function(){t.classList.add('done');},1300+(+getComputedStyle(t).getPropertyValue('--i')||0)*110);}});},{rootMargin:'0px 0px -8% 0px',threshold:.12});
+    reveals.forEach(function(el){io.observe(el);});
+    // Pause looping glass animations while off-screen
+    var po=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('is-paused',!e.isIntersecting);});});
+    po.observe(document.getElementById('hero'));po.observe(document.getElementById('services'));
+  }else reveals.forEach(function(el){el.classList.add('in');});
+
+  /* ---- Mobile menu ---- */
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){var o=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',!o);btn.setAttribute('aria-label',o?'Open menu':'Close menu');nav.classList.toggle('open',!o);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){btn.click();btn.focus();}});
+})();
+</script>
+<a href="index.html" class="cw-back-pill" style="position:fixed;z-index:2147483000;left:max(16px, env(safe-area-inset-left, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:#0a2147;color:#fff;font:600 14px/1.2 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;box-shadow:0 0 0 2px #d1a03a,0 10px 24px -8px rgba(0,0,0,.5)">&larr; All designs</a>
+</body>
+</html>

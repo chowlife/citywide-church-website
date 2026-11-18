@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/images/favicon.png" type="image/png">
+<title>Citywide Homepage Designs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+  /* Layout: navy "sanctuary" cover band with the emblem, then a cream gallery of five large design cards. Single deliberate look in the church's navy + gold. */
+  :root {
+    --navy: #113662;
+    --deep: #0a2147;
+    --gold: #d1a03a;
+    --gold-ink: #8f6814;
+    --cream: #fbf8f2;
+    --paper: #ffffff;
+    --ink: #172238;
+    --muted: #556079;
+    --line: #e6dfd2;
+    --display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--cream); color: var(--ink); font: 17px/1.6 var(--body); }
+  .band { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .inner { width: min(1120px, 100%); margin-inline: auto; }
+
+  .cover { background: radial-gradient(ellipse 700px 380px at 50% 0%, rgba(209,160,58,.22), transparent 70%), var(--deep); color: #fff; padding-block: 56px 64px; text-align: center; position: relative; overflow: hidden; }
+  .cover::after { content: ""; position: absolute; left: 50%; top: 40px; width: 520px; height: 520px; translate: -50% 0; border-radius: 50%; background: repeating-conic-gradient(from 0deg, rgba(209,160,58,.10) 0 4deg, transparent 4deg 14deg); mask: radial-gradient(circle, #000 0 30%, transparent 70%); -webkit-mask: radial-gradient(circle, #000 0 30%, transparent 70%); pointer-events: none; animation: turn 90s linear infinite; }
+  @keyframes turn { to { rotate: 360deg; } }
+  .cover .inner { position: relative; z-index: 1; display: grid; justify-items: center; gap: 14px; }
+  .seal { width: 112px; height: 112px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 4px var(--gold), 0 18px 40px -12px rgba(0,0,0,.6); }
+  .kicker { margin: 6px 0 0; text-transform: uppercase; letter-spacing: .18em; font-size: .78rem; font-weight: 700; color: var(--gold); }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.3rem, 6vw, 3.8rem); line-height: 1.05; margin: 0; text-wrap: balance; }
+  .lead { margin: 0; max-width: 58ch; color: rgba(255,255,255,.82); font-size: 1.08rem; }
+  .how { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-top: 10px; font-size: .92rem; color: rgba(255,255,255,.75); }
+  .how b { color: #fff; font-weight: 600; }
+
+  .gallery { padding-block: 48px 72px; }
+  .list { display: grid; gap: 36px; }
+  .design { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 44px); align-items: center; background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: clamp(14px, 2.4vw, 22px); }
+  .design:nth-child(even) .shot { order: 2; }
+  .shot { display: block; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 48px -26px rgba(10,33,71,.55); outline-offset: 4px; }
+  .shot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .shot:hover img, .shot:focus-visible img { transform: scale(1.03); }
+  .shot:focus-visible { outline: 3px solid var(--gold); }
+  .shot span { position: absolute; right: 12px; bottom: 12px; background: rgba(10,33,71,.88); color: #fff; font-size: .85rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+  .copy { min-width: 0; padding-right: 6px; }
+  .label { margin: 0; text-transform: uppercase; letter-spacing: .16em; font-size: .76rem; font-weight: 700; color: var(--gold-ink); }
+  h2 { font-family: var(--display); font-size: clamp(1.9rem, 3.6vw, 2.5rem); line-height: 1.1; color: var(--deep); margin: 4px 0 10px; }
+  .copy p { margin: 0 0 14px; color: var(--muted); max-width: 52ch; }
+  .copy h3 { margin: 0 0 6px; font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--navy); }
+  .copy ul { margin: 0 0 20px; padding-left: 1.1em; color: var(--ink); }
+  .copy li { margin-bottom: 3px; }
+  .open { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; text-decoration: none; font-weight: 700; padding: 11px 20px; border-radius: 999px; transition: background .2s, transform .2s; }
+  .open:hover { background: var(--deep); transform: translateY(-1px); }
+  .open:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .notes { border-top: 1px solid var(--line); padding-block: 32px 48px; color: var(--muted); font-size: .95rem; }
+  .notes .inner { display: grid; gap: 6px; max-width: 760px; }
+  .notes strong { color: var(--ink); }
+
+  @media (max-width: 820px) {
+    .design { grid-template-columns: 1fr; }
+    .design:nth-child(even) .shot { order: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cover::after { animation: none; }
+    .shot img, .open { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover band">
+  <div class="inner">
+    <img class="seal" src="../assets/images/emblem.jpg" alt="Citywide Praise &amp; Worship emblem: a city skyline with a cross, held in two hands" width="112" height="112">
+    <p class="kicker">Citywide Praise and Worship Baptist Church · Ajax, Ontario</p>
+    <h1>Five homepage designs for citywidepraise.ca</h1>
+    <p class="lead">Each design is a working homepage built with the church's real content, logo, service times and Bishop George Lwamba's welcome. They differ in mood, colour and motion. Open each one and scroll through it: the animations play as the page loads and as each section comes into view.</p>
+    <div class="how"><span><b>Open</b> a design to see it full screen</span><span><b>Scroll</b> to see each section animate in</span><span><b>&larr; All designs</b> brings you back here</span></div>
+  </div>
+</header>
+
+<main class="gallery band">
+  <div class="inner list">
+
+    <article class="design">
+      <a class="shot" href="01-sanctuary-light.html" aria-label="Open Sanctuary Light full screen"><img src="thumbs/01-sanctuary-light.jpg" alt="Sanctuary Light homepage: navy sky with golden light rays behind the emblem" width="960" height="600"><span>Open full screen</span></a>
+      <div class="copy">
+        <p class="label">Design 1</p>
+        <h2>Sanctuary Light</h2>
+        <p>Cinematic and reverent. The page feels like light pouring into a dark sanctuary, with the emblem at the centre of golden rays.</p>
+        <h3>Motion</h3>
+        <ul><li>Slowly turning light rays and drifting specks of gold light</li><li>The headline appears word by word</li><li>A candlelit band for Matthew 28:19–20</li></ul>
+        <a class="open" href="01-sanctuary-light.html">View design &rarr;</a>
+      </div>
+    </article>
+
+    <article class="design">
+      <a class="shot" href="02-stained-glass.html" aria-label="Open Stained Glass full screen"><img src="thumbs/02-stained-glass.jpg" alt="Stained Glass homepage: a jewel-toned Gothic window with the emblem in its rose medallion" width="960" height="600"><span>Open full screen</span></a>
+      <div class="copy">
+        <p class="label">Design 2</p>
+        <h2>Stained Glass</h2>
+        <p>A modern take on a cathedral window, in jewel tones held together by navy and gold lead lines.</p>
+        <h3>Motion</h3>
+        <ul><li>Glass panes light up from the centre outward</li><li>Sunlight sweeps across the window every few seconds</li><li>Coloured light drifts onto the page below</li></ul>
+        <a class="open" href="02-stained-glass.html">View design &rarr;</a>
+      </div>
+    </article>
+
+    <article class="design">
+      <a class="shot" href="03-citywide-skyline.html" aria-label="Open Citywide Dawn full screen"><img src="thumbs/03-citywide-skyline.jpg" alt="Citywide Dawn homepage: a city skyline at sunrise with a cross on the central tower" width="960" height="600"><span>Open full screen</span></a>
+      <div class="copy">
+        <p class="label">Design 3</p>
+        <h2>Citywide Dawn</h2>
+        <p>The skyline from the logo, brought to life. Hopeful and community-focused: "my church, my community, my city."</p>
+        <h3>Motion</h3>
+        <ul><li>Night turns to sunrise behind the cross tower</li><li>Buildings draw themselves and windows light up</li><li>Service times shown as moonlit, sunset and morning windows</li></ul>
+        <a class="open" href="03-citywide-skyline.html">View design &rarr;</a>
+      </div>
+    </article>
+
+    <article class="design">
+      <a class="shot" href="04-living-word.html" aria-label="Open Living Word full screen"><img src="thumbs/04-living-word.jpg" alt="Living Word homepage: ivory page with a gold illuminated letter T and the emblem as a foil seal" width="960" height="600"><span>Open full screen</span></a>
+      <div class="copy">
+        <p class="label">Design 4</p>
+        <h2>Living Word</h2>
+        <p>Timeless and editorial, like a beautifully printed Bible or hymnal, with gold-leaf details on ivory paper.</p>
+        <h3>Motion</h3>
+        <ul><li>A gold illuminated letter that draws itself</li><li>The emblem presses in like a foil seal</li><li>Service times flip in like a church hymn board</li></ul>
+        <a class="open" href="04-living-word.html">View design &rarr;</a>
+      </div>
+    </article>
+
+    <article class="design">
+      <a class="shot" href="05-praise-in-motion.html" aria-label="Open Praise in Motion full screen"><img src="thumbs/05-praise-in-motion.jpg" alt="Praise in Motion homepage: glowing navy and gold aurora with bold headline type" width="960" height="600"><span>Open full screen</span></a>
+      <div class="copy">
+        <p class="label">Design 5</p>
+        <h2>Praise in Motion</h2>
+        <p>Joyful and contemporary, with the energy of a worship night, while staying warm and welcoming.</p>
+        <h3>Motion</h3>
+        <ul><li>Glowing aurora colours and a pulsing sound-wave</li><li>"Come to Praise / Worship / Pray / Belong" rotates</li><li>"Everyone is somebody." fills with gold as you scroll</li></ul>
+        <a class="open" href="05-praise-in-motion.html">View design &rarr;</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer class="notes band">
+  <div class="inner">
+    <p><strong>About these designs.</strong> They're previews only and aren't part of the live website yet. Menu links inside each design return to this page.</p>
+    <p>Photos of the congregation and of Bishop Lwamba will replace the "Photo coming soon" spaces once they're ready. Parts of different designs can be combined, for example one design's opening with another's typography.</p>
+    <p>Every design works on phones and turns its animations off for visitors who have reduced motion switched on.</p>
+  </div>
+</footer>
+
+</body>
+</html>
