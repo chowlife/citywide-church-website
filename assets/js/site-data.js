@@ -67,12 +67,19 @@ window.SITE = {
 
   // ---- Leadership ----------------------------------------------------------
   // photo: put the picture in assets/images/ and write its file name here.
+  // bio: each "quoted line" is one paragraph.
   leaders: [
     {
-      name: "Rev. George Lwamba",
-      role: "Pastor",
-      bio: "",
-      photo: "",
+      name: "Bishop George Lwamba",
+      role: "Bishop",
+      photo: "",                            // e.g. "bishop-lwamba.jpg"
+      bio: [
+        "Bishop George Lwamba is a devoted servant of God, a visionary spiritual leader, and a passionate preacher of the Gospel of Jesus Christ at Citywide Praise and Worship Church.",
+        "With a heart for God and His people, Bishop George Lwamba is committed to transforming lives through biblical teachings, prayer, praise, and worship. His ministry is anchored in faith, love, compassion, integrity, and spiritual excellence.",
+        "He is passionate about winning souls for Christ, strengthening families, nurturing spiritual leaders, and empowering individuals to discover and fulfill their God-given purpose.",
+        "Through his leadership at Citywide Praise and Worship Church, he seeks to create an atmosphere where people can experience the presence of God, receive spiritual restoration, and grow in their relationship with Jesus Christ.",
+        "His vision is to advance the Kingdom of God, inspire generations, and make a lasting impact on communities for the glory of God.",
+      ],
     },
   ],
 

@@ -1,19 +1,21 @@
 /* Citywide Praise & Worship Baptist Church — site styles
    Colours live at the top; change them here and the whole site follows. */
 :root {
-  --purple-900: #2a1650;
-  --purple-800: #3a1f6e;
-  --purple-700: #4c2a8c;
-  --purple-100: #efe9fb;
-  --gold: #d9a536;
-  --gold-dark: #b8861c;
+  /* Brand colours taken from the church logo (navy + gold).
+     The "purple" names are historical — they hold the navy shades. */
+  --purple-900: #0a2147;
+  --purple-800: #113662;
+  --purple-700: #1d4a85;
+  --purple-100: #e8eef7;
+  --gold: #d1a03a;
+  --gold-dark: #9c7218;
   --cream: #fbf8f2;
   --ink: #1f1a2b;
   --muted: #5d566b;
   --line: #e6e0d6;
   --white: #ffffff;
   --radius: 14px;
-  --shadow: 0 10px 30px -12px rgba(42, 22, 80, 0.25);
+  --shadow: 0 10px 30px -12px rgba(10, 33, 71, 0.28);
   --serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --sans: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
@@ -42,7 +44,7 @@ p { margin: 0 0 1em; }
 #site-header { position: sticky; top: 0; z-index: 50; background: rgba(251, 248, 242, .94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--purple-900); }
-.brand-mark { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--purple-800); color: var(--gold); font-family: var(--serif); font-weight: 700; font-size: 1.35rem; flex: none; }
+.brand-mark { width: 50px; height: 50px; border-radius: 50%; background: var(--white); flex: none; object-fit: cover; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
 .brand-text strong { font-family: var(--serif); font-size: 1.25rem; }
 .brand-text small { font-size: .78rem; color: var(--muted); letter-spacing: .02em; }
@@ -71,7 +73,7 @@ p { margin: 0 0 1em; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2px solid transparent; transition: transform .15s, background .15s; }
 .btn:hover { transform: translateY(-1px); }
 .btn-gold { background: var(--gold); color: var(--purple-900); }
-.btn-gold:hover { background: #e6b54a; color: var(--purple-900); }
+.btn-gold:hover { background: #ddb052; color: var(--purple-900); }
 .btn-outline-light { border-color: rgba(255,255,255,.7); color: var(--white); }
 .btn-outline-light:hover { background: rgba(255,255,255,.12); color: var(--white); }
 .btn-primary { background: var(--purple-800); color: var(--white); }
@@ -82,19 +84,25 @@ p { margin: 0 0 1em; }
 .hero {
   position: relative; color: var(--white); padding: clamp(80px, 14vw, 150px) 0 clamp(70px, 10vw, 120px);
   background:
-    linear-gradient(115deg, rgba(42,22,80,.94) 0%, rgba(58,31,110,.86) 50%, rgba(76,42,140,.7) 100%),
+    linear-gradient(115deg, rgba(10,33,71,.95) 0%, rgba(17,54,98,.88) 50%, rgba(29,74,133,.72) 100%),
     var(--hero-photo, none) center / cover no-repeat,
     var(--purple-800);
   overflow: hidden;
 }
-.hero::after { content: ""; position: absolute; right: -120px; bottom: -160px; width: 460px; height: 460px; border-radius: 50%; border: 60px solid rgba(217,165,54,.12); pointer-events: none; }
+.hero::after { content: ""; position: absolute; right: -120px; bottom: -160px; width: 460px; height: 460px; border-radius: 50%; border: 60px solid rgba(209,160,58,.14); pointer-events: none; }
 .hero h1 { color: var(--white); max-width: 15ch; }
+.hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; position: relative; z-index: 1; }
+.hero-emblem { width: clamp(260px, 30vw, 380px); height: auto; border-radius: 50%; background: var(--white); border: 8px solid rgba(255,255,255,.9); box-shadow: 0 0 0 6px var(--gold), 0 30px 60px -20px rgba(0,0,0,.55); }
+@media (max-width: 880px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .hero-emblem { order: -1; width: 140px; border-width: 4px; box-shadow: 0 0 0 4px var(--gold); }
+}
 .hero .eyebrow { color: var(--gold); }
 .hero-lead { font-size: clamp(1.1rem, 2vw, 1.3rem); max-width: 40ch; opacity: .92; margin-bottom: 1.8em; }
 .hero-times { margin-top: 36px; display: inline-flex; flex-wrap: wrap; gap: 6px 18px; padding: 14px 22px; border-radius: var(--radius); background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); font-weight: 600; }
 .hero-times span { color: var(--gold); }
 .page-hero { background: var(--purple-800); color: var(--white); padding: 64px 0 56px; position: relative; overflow: hidden; }
-.page-hero::after { content: ""; position: absolute; right: -80px; top: -120px; width: 320px; height: 320px; border-radius: 50%; border: 44px solid rgba(217,165,54,.13); }
+.page-hero::after { content: ""; position: absolute; right: -80px; top: -120px; width: 320px; height: 320px; border-radius: 50%; border: 44px solid rgba(209,160,58,.15); }
 .page-hero h1 { color: var(--white); margin: 0; }
 .page-hero p { max-width: 60ch; opacity: .9; margin: 12px 0 0; font-size: 1.15rem; }
 .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .82rem; font-weight: 700; color: var(--gold-dark); margin-bottom: .6em; }
@@ -158,12 +166,24 @@ section { padding: clamp(56px, 8vw, 96px) 0; }
 .belief.wide { grid-column: 1 / -1; }
 
 /* Leaders */
-.leaders { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 300px)); gap: 22px; }
-.leader-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; text-align: center; }
-.leader-card img, .leader-initials { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 16px; object-fit: cover; }
-.leader-initials { display: grid; place-items: center; background: var(--purple-800); color: var(--gold); font-family: var(--serif); font-size: 2.4rem; font-weight: 700; }
-.leader-card h3 { margin-bottom: 2px; }
-.leader-role { color: var(--gold-dark); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .82rem; }
+.leaders { display: grid; gap: 24px; }
+.leader-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(24px, 4vw, 40px); display: grid; grid-template-columns: 220px 1fr; gap: clamp(24px, 4vw, 48px); align-items: start; box-shadow: var(--shadow); }
+.leader-photo, .leader-initials { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; }
+.leader-initials { display: grid; place-items: center; background: var(--purple-800); color: var(--gold); font-family: var(--serif); font-size: 4rem; font-weight: 700; border: 6px solid var(--gold); }
+.leader-card h3 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin-bottom: 4px; }
+.leader-role { color: var(--gold-dark); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; margin-bottom: 18px; }
+.leader-bio p:first-child { font-size: 1.15rem; color: var(--purple-900); }
+.leader-bio p:last-child { margin-bottom: 0; }
+@media (max-width: 700px) {
+  .leader-card { grid-template-columns: 1fr; text-align: center; }
+  .leader-photo, .leader-initials { width: 160px; height: 160px; margin: 0 auto; }
+  .leader-bio { text-align: left; }
+}
+
+/* Mission + logo */
+.mission-band { background: var(--white); border-block: 1px solid var(--line); }
+.logo-card { background: var(--white); border-radius: var(--radius); padding: 12px; }
+.logo-card img { width: 100%; height: auto; }
 
 /* Ministries */
 .ministry { display: grid; grid-template-columns: 76px 1fr; gap: 22px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; }

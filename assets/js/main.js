@@ -45,7 +45,7 @@
   if (header) {
     header.innerHTML =
       '<div class="container nav-wrap">' +
-        '<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">C</span>' +
+        '<a class="brand" href="index.html"><img class="brand-mark" src="assets/images/apple-touch-icon.png" alt="" width="50" height="50">' +
         '<span class="brand-text"><strong>Citywide</strong><small>Praise &amp; Worship Baptist Church</small></span></a>' +
         '<button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>' +
         '<nav id="site-nav" class="site-nav"><ul>' +
@@ -145,10 +145,12 @@
   document.querySelectorAll("[data-leaders]").forEach(function (el) {
     el.innerHTML = (S.leaders || []).map(function (l) {
       var initials = l.name.replace(/^(Rev\.|Pastor|Dr\.|Bishop|Elder|Deacon)\s+/i, "").split(/\s+/).map(function (w) { return w[0]; }).slice(0, 2).join("");
+      var bio = [].concat(l.bio || []).filter(Boolean);
       return '<article class="leader-card">' +
-        (l.photo ? '<img src="assets/images/' + esc(l.photo) + '" alt="' + esc(l.name) + '">' : '<div class="leader-initials" aria-hidden="true">' + esc(initials) + "</div>") +
-        "<h3>" + esc(l.name) + '</h3><p class="leader-role">' + esc(l.role) + "</p>" +
-        (l.bio ? "<p>" + esc(l.bio) + "</p>" : "") + "</article>";
+        (l.photo ? '<img class="leader-photo" src="assets/images/' + esc(l.photo) + '" alt="' + esc(l.name) + '">' : '<div class="leader-initials" aria-hidden="true">' + esc(initials) + "</div>") +
+        "<div><h3>" + esc(l.name) + '</h3><p class="leader-role">' + esc(l.role) + "</p>" +
+        (bio.length ? '<div class="leader-bio">' + bio.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" : "") +
+        "</div></article>";
     }).join("");
   });
 
