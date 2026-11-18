@@ -16,7 +16,7 @@ window.SITE = {
     street: "80 Falby Court",
     city: "Ajax",
     province: "ON",
-    postalCode: "",                       // e.g. "L1S 0A0"
+    postalCode: "L1S 1N4",
   },
   phone: "905-686-1757",
   cell: "289-388-1705",

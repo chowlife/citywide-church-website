@@ -20,7 +20,7 @@
   function telHref(p) { return "tel:+1" + String(p).replace(/\D/g, ""); }
   function fullAddress() {
     var a = S.address || {};
-    return [a.street, a.city + ", " + a.province, a.postalCode].filter(Boolean).join(", ");
+    return [a.street, a.city + ", " + [a.province, a.postalCode].filter(Boolean).join(" ")].filter(Boolean).join(", ");
   }
   function mapsLink() {
     return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(fullAddress());

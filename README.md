@@ -99,7 +99,7 @@ by uploading this same folder.
 - [x] Confirm weekday meeting times (Monday Morning Prayer, Thursday Bible Study)
 - [x] Confirm pastor's name/title
 - [ ] Add pastor photo and short bio
-- [ ] Add postal code
+- [x] Add postal code
 - [x] Add email address and e-Transfer email
 - [ ] Turn on auto-renew for citywidepraise.ca at Namecheap (registered until Nov 18, 2027)
 - [ ] Add Facebook / YouTube links if any
