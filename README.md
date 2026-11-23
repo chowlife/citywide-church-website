@@ -12,7 +12,8 @@ The whole website is this one folder — copy it anywhere and it works.
 citywide-church-website/
 ├── index.html          Home page
 ├── about.html          About us, mission, leadership, statement of faith
-├── ministries.html     Women's, Men's, Children's, Bible Study / Prayer
+├── ministries.html     Women's, Men's, Children's, Choir & Musicians, Bible Study / Prayer
+├── baptism.html        What baptism means, next steps, FAQ
 ├── visit.html          Service times, map, contact info, FAQ
 ├── give.html           CanadaHelps, e-Transfer, in-person giving
 ├── README.md           This guide

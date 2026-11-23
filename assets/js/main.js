@@ -10,6 +10,7 @@
     { href: "index.html", label: "Home", id: "home" },
     { href: "about.html", label: "About & Beliefs", id: "about" },
     { href: "ministries.html", label: "Ministries", id: "ministries" },
+    { href: "baptism.html", label: "Baptism", id: "baptism" },
     { href: "visit.html", label: "Plan a Visit", id: "visit" },
     { href: "give.html", label: "Give", id: "give" },
   ];
@@ -106,7 +107,9 @@
 
   // ---- Weekly services as lit church windows ---------------------------------
   // Each window shows the sky for its hour: night before 7 AM, dusk from 5 PM, daylight otherwise.
-  var DAYS = { monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6, sunday: 7 };
+  var DAYS = { "every day": 0, everyday: 0, daily: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6, sunday: 7 };
+  function dayKey(s) { return String(s.day || "").trim().toLowerCase(); }
+  function dayShort(s) { var k = dayKey(s); return DAYS[k] === 0 ? "Daily" : DAYS[k] ? String(s.day).trim().slice(0, 3) : String(s.day); }
   var CITY = [
     '<path d="M0 40V22H14V14H26V24H38V8H50V26H62V18H76V28H88V12H100V24H112V18H120V40Z"/><rect x="42" y="12" width="3" height="4"/><rect x="92" y="16" width="3" height="4"/>',
     '<path d="M0 40V18H12V26H24V10H36V22H50V14H64V28H76V16H90V24H104V8H120V40Z"/><rect x="28" y="14" width="3" height="4"/><rect x="68" y="30" width="3" height="4"/><rect x="108" y="12" width="3" height="4"/>',
@@ -124,13 +127,14 @@
   }
   d.querySelectorAll("[data-services]").forEach(function (el) {
     var list = services.slice().sort(function (a, b) {
-      return (DAYS[String(a.day).toLowerCase()] || 8) - (DAYS[String(b.day).toLowerCase()] || 8) || hourOf(a.time) - hourOf(b.time);
+      var da = DAYS[dayKey(a)], db = DAYS[dayKey(b)];
+      return (da == null ? 8 : da) - (db == null ? 8 : db) || hourOf(a.time) - hourOf(b.time);
     });
     el.innerHTML = '<ol class="week">' + list.map(function (s, i) {
       var h = hourOf(s.time), sky = h < 7 ? "night" : h >= 17 ? "dusk" : "day";
       return '<li class="slot' + (s.featured ? " featured" : "") + '">' +
-        '<p class="tick">' + esc(String(s.day).slice(0, 3)) + " · " + esc(shortTime(s.time)) + "</p>" +
-        '<div class="pane ' + sky + '" aria-hidden="true"><svg viewBox="0 0 120 40" preserveAspectRatio="none">' + CITY[i % CITY.length] + "</svg></div>" +
+        '<p class="tick">' + esc(dayShort(s)) + " · " + esc(shortTime(s.time)) + "</p>" +
+        '<div class="pane sky-' + sky + '" aria-hidden="true"><svg viewBox="0 0 120 40" preserveAspectRatio="none">' + CITY[i % CITY.length] + "</svg></div>" +
         '<p class="day">' + esc(s.day) + "</p><h3>" + esc(s.name) + "</h3><time>" + esc(s.time) + "</time>" +
         (s.description ? '<p class="desc">' + esc(s.description) + "</p>" : "") + "</li>";
     }).join("") + "</ol>";

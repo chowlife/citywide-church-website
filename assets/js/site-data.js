@@ -46,9 +46,15 @@ window.SITE = {
     },
     {
       day: "Thursday",
-      time: "7:00 PM – 8:30 PM",
+      time: "6:00 PM – 7:00 PM",
       name: "Bible Study & Prayer",
       description: "Digging into Scripture together and getting the spiritual connection through prayer.",
+    },
+    {
+      day: "Every day",                    // "Every day" shows first and is labelled "Daily"
+      time: "12:00 AM – 1:00 AM",
+      name: "Midnight Prayers",
+      description: "A night of deliverance. Our Liberation prayer service, praying together through the midnight hour.",
     },
   ],
 
