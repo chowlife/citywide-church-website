@@ -20,6 +20,7 @@ citywide-church-website/
     ├── css/style.css   Colours, fonts, layout
     ├── js/site-data.js ★ EDIT THIS for times, events, phone, leaders, giving
     ├── js/main.js      Builds the menu/footer (normally leave alone)
+    ├── js/skyline.js   Home page sunrise skyline animation (normally leave alone)
     └── images/         Put photos here
 ```
 
@@ -48,8 +49,10 @@ every page automatically:
 2. Resize large phone photos to about 1600px wide first (keeps the site fast).
 3. Hook it up:
    - **Pastor / leader photo:** in `site-data.js`, set `photo: "pastor.jpg"`.
-   - **Home page background:** save as `hero.jpg`, then follow the comment above `<section class="hero">` in `index.html`.
-   - **Grey "Photo of…" boxes:** in the HTML, replace the `<div class="photo-label">…</div>` line with the `<img …>` line shown in the comment right above it.
+   - **"Photo coming soon" arch frames** (Home and About pages): save the photo as named in the
+     comment right above the `<figure class="photo">` in the HTML, then replace the two lines inside
+     `<figure>` with the `<img class="real" …>` line shown in that comment.
+   - The home page's animated sunrise skyline is drawn in code, so it needs no photo.
 
 ## 4. Preview on your own computer
 
@@ -103,6 +106,6 @@ by uploading this same folder.
 - [x] Add email address and e-Transfer email
 - [ ] Turn on auto-renew for citywidepraise.ca at Namecheap (registered until Nov 18, 2027)
 - [ ] Add Facebook / YouTube links if any
-- [ ] Add real photos (hero, congregation, worship)
+- [ ] Add real photos (congregation, worship, Bishop Lwamba)
 - [ ] Update the church's address on the CanadaHelps / CRA listing (it still shows 1593 Seguin Sq, Pickering)
 - [ ] Redirect or retire the old `cwpwccanada.wordpress.com` site (WordPress.com shows ads on it)

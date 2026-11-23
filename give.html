@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,7 @@
   <meta name="description" content="Support the ministry of Citywide Praise and Worship Baptist Church, a registered Canadian charity in Ajax, Ontario.">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-  <meta name="theme-color" content="#113662">
+  <meta name="theme-color" content="#0a2147">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Citywide Praise and Worship Baptist Church">
   <meta property="og:title" content="Give | Citywide Praise and Worship Baptist Church">
@@ -17,67 +17,47 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body data-page="give">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header id="site-header"></header>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header id="site-header"></header>
 
-  <main id="main">
-    <div class="page-hero">
-      <div class="container">
-        <p class="eyebrow" style="color:var(--gold)">Give</p>
-        <h1>A river, not a reservoir.</h1>
-        <p>Your generosity helps us share the love of Jesus in Ajax, across Durham Region and around the world.</p>
-      </div>
+<main id="main">
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">Give</p>
+      <h1 id="page-title">A river, not a <em>reservoir</em>.</h1>
+      <p class="intro">Your generosity helps us share the love of Jesus in Ajax, across Durham Region and around the world.</p>
     </div>
+    <div data-skyline></div>
+  </section>
 
-    <section>
-      <div class="container">
-        <div class="grid-2" style="align-items:stretch">
-          <div class="give-option" data-hide-empty>
-            <p class="eyebrow">Online</p>
-            <h3>Give through CanadaHelps</h3>
-            <p>Give securely by credit card, PayPal and more. You'll receive an official tax receipt by email automatically.</p>
-            <a class="btn btn-primary" data-give-online target="_blank" rel="noopener">Give online</a>
-          </div>
-          <div class="give-option" data-hide-empty>
-            <p class="eyebrow">Interac e-Transfer</p>
-            <h3>Send an e-Transfer</h3>
-            <p>From your Canadian bank's app, send your gift to:</p>
-            <p><strong data-etransfer></strong></p>
-            <p class="muted">Autodeposit is on — no security question needed. Add your name and "tithe," "offering" or a purpose in the message.</p>
-          </div>
-          <div class="give-option" data-hide-empty>
-            <p class="eyebrow">PayPal</p>
-            <h3>Send with PayPal</h3>
-            <p>In the PayPal app or website, choose <strong>Send</strong> to:</p>
-            <p><strong data-paypal></strong></p>
-            <p class="muted">Choose "Friends &amp; Family" where possible so the full gift reaches the church.</p>
-          </div>
-          <div class="give-option">
-            <p class="eyebrow">In person</p>
-            <h3>Give on Sunday</h3>
-            <p>Give during our Sunday worship service with cash or cheque made out to <em>Citywide Praise and Worship Baptist Church</em>.</p>
-            <a class="btn btn-primary" href="visit.html">Service times</a>
-          </div>
-        </div>
+  <section aria-labelledby="ways-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">Ways to give</p>
+        <h2 id="ways-h">Give the way that suits you.</h2>
       </div>
-    </section>
+      <ul class="ways large" data-ways="large"></ul>
+    </div>
+  </section>
 
-    <section class="section-alt">
-      <div class="container" style="max-width:780px;text-align:center">
-        <p class="eyebrow">Registered charity</p>
-        <h2>Tax receipts</h2>
-        <p>Citywide Praise and Worship Baptist Church is a registered Canadian charity (business number 839404886RR0001). Eligible gifts receive an official receipt for income tax purposes.</p>
-        <p class="muted">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." — 2 Corinthians 9:7</p>
-      </div>
-    </section>
-  </main>
+  <section class="visit" aria-labelledby="receipt-h">
+    <div class="wrap receipt rv">
+      <p class="eyebrow" style="justify-content:center">Registered charity</p>
+      <h2 id="receipt-h">Tax receipts.</h2>
+      <p class="lede" style="margin-inline:auto">Citywide Praise and Worship Baptist Church is a registered Canadian charity (business number 839404886RR0001). Eligible gifts receive an official receipt for income tax purposes.</p>
+      <p class="verse">“Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver.”<br><span class="eyebrow" style="margin:12px 0 0">2 Corinthians 9:7</span></p>
+    </div>
+  </section>
+</main>
 
-  <footer id="site-footer"></footer>
-  <script src="assets/js/site-data.js"></script>
-  <script src="assets/js/main.js"></script>
+<footer id="site-footer"></footer>
+<script src="assets/js/site-data.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -1,4 +1,0 @@
-# Netlify headers. The /preview design samples are for the client only:
-# tell search engines not to list them.
-/preview/*
-  X-Robots-Tag: noindex, nofollow
