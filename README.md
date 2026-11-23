@@ -50,9 +50,8 @@ every page automatically:
 2. Resize large phone photos to about 1600px wide first (keeps the site fast).
 3. Hook it up:
    - **Pastor / leader photo:** in `site-data.js`, set `photo: "pastor.jpg"`.
-   - **"Photo coming soon" arch frames** (Home and About pages): save the photo as named in the
-     comment right above the `<figure class="photo">` in the HTML, then replace the two lines inside
-     `<figure>` with the `<img class="real" …>` line shown in that comment.
+   - **Arch frames** (Home, About, Baptism): to swap a photo, save the new one over the file named in the
+     comment right above the `<figure class="photo">` in the HTML (upright photos fit the arch best).
    - The home page's animated sunrise skyline is drawn in code, so it needs no photo.
 
 ## 4. Preview on your own computer
@@ -102,11 +101,12 @@ by uploading this same folder.
 - [x] Confirm phone numbers
 - [x] Confirm weekday meeting times (Monday Morning Prayer, Thursday Bible Study)
 - [x] Confirm pastor's name/title
-- [ ] Add pastor photo and short bio
+- [x] Add pastor photo and short bio
 - [x] Add postal code
 - [x] Add email address and e-Transfer email
 - [ ] Turn on auto-renew for citywidepraise.ca at Namecheap (registered until Nov 18, 2027)
 - [ ] Add Facebook / YouTube links if any
-- [ ] Add real photos (congregation, worship, Bishop Lwamba)
+- [x] Add real photos (congregation, worship, Bishop Lwamba, baptism, Men’s, Choir)
+- [ ] Photos still wanted: Women’s, Children’s, Prayer & Bible Study, church entrance
 - [ ] Update the church's address on the CanadaHelps / CRA listing (it still shows 1593 Seguin Sq, Pickering)
 - [ ] Redirect or retire the old `cwpwccanada.wordpress.com` site (WordPress.com shows ads on it)

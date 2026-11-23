@@ -78,7 +78,7 @@ window.SITE = {
     {
       name: "Bishop George Lwamba",
       role: "Bishop",
-      photo: "",                            // e.g. "bishop-lwamba.jpg"
+      photo: "bishop-lwamba.jpg",           // file in assets/images ("" shows initials)
       bio: [
         "Bishop George Lwamba is a devoted servant of God, a visionary spiritual leader, and a passionate preacher of the Gospel of Jesus Christ at Citywide Praise and Worship Church.",
         "With a heart for God and His people, Bishop George Lwamba is committed to transforming lives through biblical teachings, prayer, praise, and worship. His ministry is anchored in faith, love, compassion, integrity, and spiritual excellence.",
